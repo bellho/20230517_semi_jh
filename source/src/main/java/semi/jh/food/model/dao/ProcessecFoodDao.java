@@ -15,7 +15,7 @@ import semi.jh.food.model.dto.ProcessecFoodDto;
 public class ProcessecFoodDao {
 
 	/**
-	  * @Method Name : selectList
+	  * @Method Name : selectListFood
 	  * @작성일 : 2023. 8. 8.
 	  * @작성자 : 1313k
 	  * @변경이력 : 
@@ -25,7 +25,7 @@ public class ProcessecFoodDao {
 	  * @return
 	  * @throws SQLException
 	  */
-	public List<ProcessecFoodDto> selectList(Connection conn, String foodName) throws SQLException{
+	public List<ProcessecFoodDto> selectListFood(Connection conn, String foodName) throws SQLException{
 		System.out.println("[ProcessecFoodDao slecetList]");
 		List<ProcessecFoodDto> result = new ArrayList<ProcessecFoodDto>();
 		String query = "SELECT food_name,"

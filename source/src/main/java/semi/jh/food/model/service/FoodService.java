@@ -12,17 +12,10 @@ import semi.jh.food.model.dto.ProcessecFoodDto;
 public class FoodService {
 	private ProcessecFoodDao dao = new ProcessecFoodDao();
 	
-	public List<ProcessecFoodDto> selectList() throws SQLException{
+	public List<ProcessecFoodDto> selectListFood(String foodName) throws SQLException{
 		List<ProcessecFoodDto> result = null;
 		Connection conn = getConnection();
-		result = dao.selectList(conn);
-		close(conn);
-		return result;
-	}
-	public List<ProcessecFoodDto> selectList(String foodName) throws SQLException{
-		List<ProcessecFoodDto> result = null;
-		Connection conn = getConnection();
-		result = dao.selectList(conn, foodName);
+		result = dao.selectListFood(conn, foodName);
 		close(conn);
 		return result;
 	}

@@ -35,7 +35,7 @@ public class FoodListServlet extends HttpServlet {
 		FoodService service = new FoodService();
 		try {
 			String searchWord = request.getParameter("foodName");
-			List<ProcessecFoodDto> foodList = service.selectList(searchWord);
+			List<ProcessecFoodDto> foodList = service.selectListFood(searchWord);
 			System.out.println("서블릿" + foodList);
 			request.setAttribute("searchWord", searchWord);
 			request.setAttribute("foodList", foodList);
