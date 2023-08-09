@@ -18,7 +18,7 @@ public class ProcessecFoodDto {
 //	SATURATED_FAT               NUMBER        
 //	TRANS_FAT          NOT NULL NUMBER        
 //	INFORMATION_SOURCE NOT NULL VARCHAR2(100) 
-//	LSSUER             NOT NULL VARCHAR2(100) 
+//	issuer             NOT NULL VARCHAR2(100) 
 	
 	private String foodCode;
 	private String foodName;
@@ -38,7 +38,7 @@ public class ProcessecFoodDto {
 	private Integer saturatedFat;
 	private Integer transFat;
 	private String imformationSource;
-	private String lassuer;
+	private String issuer;
 	private String foodDbCategory;
 	private String foodCategory;
 	
@@ -51,7 +51,7 @@ public class ProcessecFoodDto {
 				+ ", milliter=" + milliter + ", calories=" + calories + ", totalCarbohydrate=" + totalCarbohydrate
 				+ ", protein=" + protein + ", totalFat=" + totalFat + ", sugars=" + sugars + ", soduim=" + soduim
 				+ ", cholesterol=" + cholesterol + ", saturatedFat=" + saturatedFat + ", transFat=" + transFat
-				+ ", imformationSource=" + imformationSource + ", lassuer=" + lassuer + ", foodDbCategory="
+				+ ", imformationSource=" + imformationSource + ", issuer=" + issuer + ", foodDbCategory="
 				+ foodDbCategory + ", foodCategory=" + foodCategory + "]";
 	}
 
@@ -96,7 +96,7 @@ public class ProcessecFoodDto {
 	public ProcessecFoodDto(String foodCode, String foodName, String manufacturer, Integer foodDate,
 			Integer servingSize, String unit, Integer gram, Integer milliter, Integer calories,
 			Integer totalCarbohydrate, Integer protein, Integer totalFat, Integer sugars, Integer soduim,
-			Integer cholesterol, Integer saturatedFat, Integer transFat, String imformationSource, String lassuer,
+			Integer cholesterol, Integer saturatedFat, Integer transFat, String imformationSource, String issuer,
 			String foodDbCategory, String foodCategory) {
 		super();
 		this.foodCode = foodCode;
@@ -117,7 +117,7 @@ public class ProcessecFoodDto {
 		this.saturatedFat = saturatedFat;
 		this.transFat = transFat;
 		this.imformationSource = imformationSource;
-		this.lassuer = lassuer;
+		this.issuer = issuer;
 		this.foodDbCategory = foodDbCategory;
 		this.foodCategory = foodCategory;
 	}
@@ -257,11 +257,11 @@ public class ProcessecFoodDto {
 	public void setImformationSource(String imformationSource) {
 		this.imformationSource = imformationSource;
 	}
-	public String getLassuer() {
-		return lassuer;
+	public String getissuer() {
+		return issuer;
 	}
-	public void setLassuer(String lassuer) {
-		this.lassuer = lassuer;
+	public void setissuer(String issuer) {
+		this.issuer = issuer;
 	}
 	
 	
