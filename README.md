@@ -3,9 +3,10 @@
 ## Contents
 1. 프로젝트 개요
 2. 설계의 주안점
-3. 주요기능
+3. 개발환경
 4. ERD구조
-5. 추후 개발예정
+5. Url Mapping
+6. 주요기능
 
 ## 1️⃣ 프로젝트 개요
 
@@ -35,3 +36,8 @@
 ## 5️⃣Url Mapping
 <img width="452" alt="SEKI_url_mapping" src="https://github.com/bellho/20230517_semi_jh/assets/134384518/956dd12f-d0ea-48ce-8311-3bd24ecd1c00">
 
+## 6️⃣주요기능
+
+1. 식품 검색
+
+2. 식품 상세 정보
