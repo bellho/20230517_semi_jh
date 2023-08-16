@@ -37,7 +37,7 @@ public class ProcessecFoodDto {
 	private Integer cholesterol;
 	private Integer saturatedFat;
 	private Integer transFat;
-	private String imformationSource;
+	private String informationSource;
 	private String issuer;
 	private String foodDbCategory;
 	private String foodCategory;
@@ -51,7 +51,7 @@ public class ProcessecFoodDto {
 				+ ", milliter=" + milliter + ", calories=" + calories + ", totalCarbohydrate=" + totalCarbohydrate
 				+ ", protein=" + protein + ", totalFat=" + totalFat + ", sugars=" + sugars + ", soduim=" + soduim
 				+ ", cholesterol=" + cholesterol + ", saturatedFat=" + saturatedFat + ", transFat=" + transFat
-				+ ", imformationSource=" + imformationSource + ", issuer=" + issuer + ", foodDbCategory="
+				+ ", informationSource=" + informationSource + ", issuer=" + issuer + ", foodDbCategory="
 				+ foodDbCategory + ", foodCategory=" + foodCategory + "]";
 	}
 
@@ -69,15 +69,16 @@ public class ProcessecFoodDto {
 	
 
 
-	public ProcessecFoodDto(String foodName, String manufacturer, Integer foodDate, String foodDbCategory, String foodCategory,
-			String imformationSource, Integer calories) {
+	public ProcessecFoodDto(String foodCode, String foodName, String manufacturer, Integer foodDate, String foodDbCategory, String foodCategory,
+			String informationSource, Integer calories) {
 		super();
+		this.foodCode = foodCode;
 		this.foodName = foodName;
 		this.manufacturer = manufacturer;
 		this.foodDate = foodDate;
 		this.foodDbCategory = foodDbCategory;
 		this.foodCategory = foodCategory;
-		this.imformationSource = imformationSource;
+		this.informationSource = informationSource;
 		this.calories = calories;
 	}
 
@@ -96,7 +97,7 @@ public class ProcessecFoodDto {
 	public ProcessecFoodDto(String foodCode, String foodName, String manufacturer, Integer foodDate,
 			Integer servingSize, String unit, Integer gram, Integer milliter, Integer calories,
 			Integer totalCarbohydrate, Integer protein, Integer totalFat, Integer sugars, Integer soduim,
-			Integer cholesterol, Integer saturatedFat, Integer transFat, String imformationSource, String issuer,
+			Integer cholesterol, Integer saturatedFat, Integer transFat, String informationSource, String issuer,
 			String foodDbCategory, String foodCategory) {
 		super();
 		this.foodCode = foodCode;
@@ -116,7 +117,7 @@ public class ProcessecFoodDto {
 		this.cholesterol = cholesterol;
 		this.saturatedFat = saturatedFat;
 		this.transFat = transFat;
-		this.imformationSource = imformationSource;
+		this.informationSource = informationSource;
 		this.issuer = issuer;
 		this.foodDbCategory = foodDbCategory;
 		this.foodCategory = foodCategory;
@@ -251,16 +252,16 @@ public class ProcessecFoodDto {
 	public void setTransFat(Integer transFat) {
 		this.transFat = transFat;
 	}
-	public String getImformationSource() {
-		return imformationSource;
+	public String getInformationSource() {
+		return informationSource;
 	}
-	public void setImformationSource(String imformationSource) {
-		this.imformationSource = imformationSource;
+	public void setInformationSource(String informationSource) {
+		this.informationSource = informationSource;
 	}
-	public String getissuer() {
+	public String getIssuer() {
 		return issuer;
 	}
-	public void setissuer(String issuer) {
+	public void setIssuer(String issuer) {
 		this.issuer = issuer;
 	}
 	

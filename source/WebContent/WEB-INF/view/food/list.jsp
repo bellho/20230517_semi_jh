@@ -19,7 +19,6 @@
 <c:choose>
 	<c:when test = "${not empty foodList }">
 		<h3>${serachWord } 검색결과</h3>
-		<h5><a href = "/food/list">전체보기</a></h5>
 		<table border="1">
 		
 			<tr>
@@ -36,7 +35,7 @@
 			<c:forEach items="${foodList }" var="vo">
 				<tr>
 					<th>${num }</th>
-					<th>${vo.foodName }</th>
+					<th><a href="${pageContext.request.contextPath }/food/get?fno=${vo.foodCode }">${vo.foodName }</a></th>
 					<th>${vo.manufacturer }</th>
 					<th>${vo.foodDate }</th>
 					<th>${vo.foodDbCategory }</th>
@@ -51,7 +50,7 @@
 			<a href="${pageContext.request.contextPath }/food/list?pageNo=${startPageNum-1}&searchWord="><span>이전</span></a>
 		</c:if>
 		<c:forEach begin="${startPageNum}" end="${endPageNum}" var="i">
-			<a href="${pageContext.request.contextPath }/food/list?pageNo=?pageNo=${i}&searchWord=${searchWord }"><span>${i }</span></a>
+			<a href="${pageContext.request.contextPath }/food/list?pageNo=${i}&searchWord=${searchWord }"><span>${i }</span></a>
 		</c:forEach>
 		<c:if test="${endPageNum < totalPageNum}">
 			<a href="${pageContext.request.contextPath }/food/list?pageNo=${endPageNum+1}&searchWord=${searchWord }"><span>다음</span></a>

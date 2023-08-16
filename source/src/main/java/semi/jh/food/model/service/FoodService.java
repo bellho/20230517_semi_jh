@@ -35,10 +35,10 @@ public class FoodService {
 		return map;
 	}
 	
-//	public int getTotalCount(String searchWord) throws SQLException {
-//		Connection conn = getConnection();
-//		int result = dao.getSearchTotalCount(conn, searchWord);
-//		close(conn);
-//		return result;
-//	}
+	public ProcessecFoodDto selectOneStudent(String foodCode) throws SQLException {
+		Connection conn = getConnection();
+		ProcessecFoodDto result = dao.selectOneFood(conn, foodCode);
+		close(conn);
+		return result;
+	}
 }

@@ -1,11 +1,16 @@
 package semi.jh.food.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import semi.jh.food.model.dto.ProcessecFoodDto;
+import semi.jh.food.model.service.FoodService;
 
 /**
  * Servlet implementation class FoodSelectOneListSevlet
@@ -19,15 +24,16 @@ public class FoodGetSevlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String foodCode = request.getParameter("fno");
+		FoodService service = new FoodService();
+		try {
+			ProcessecFoodDto vo = service.selectOneStudent(foodCode);
+			request.setAttribute("fvo", vo);
+			request.getRequestDispatcher("/WEB-INF/view/food/get.jsp").forward(request, response);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	
-		
-	}
 
 }

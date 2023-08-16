@@ -29,6 +29,7 @@ public class ProcessecFoodDao {
 		System.out.println("[ProcessecFoodDao slecetList]");
 		List<ProcessecFoodDto> result = new ArrayList<ProcessecFoodDto>();
 		String query = "SELECT food_name,"
+				+ " food_code,"
 				+ " manufacturer,"
 				+ " food_date,"
 				+ " food_db_category,"
@@ -46,6 +47,7 @@ public class ProcessecFoodDao {
 		rs = pstmt.executeQuery();
 		if(rs.next()) {
 			ProcessecFoodDto vo = new ProcessecFoodDto(
+					rs.getString("food_code"),
 					rs.getString("food_name"), 
 					rs.getString("manufacturer"),
 					rs.getInt("food_date"),
@@ -97,6 +99,7 @@ public class ProcessecFoodDao {
 		String query = "SELECT * "
 				+ " from(select tb1.*,"
 				+ " rownum rn from(SELECT food_name,"
+				+ " food_code,"
 				+ " manufacturer,"
 				+ " food_date,"
 				+ " food_db_category,"
@@ -123,6 +126,7 @@ public class ProcessecFoodDao {
 		rs = pstmt.executeQuery();
 		while (rs.next()) {
 			ProcessecFoodDto vo = new ProcessecFoodDto(
+					rs.getString("food_code"),
 					rs.getString("food_name"), 
 					rs.getString("manufacturer"),
 					rs.getInt("food_date"),
@@ -132,6 +136,45 @@ public class ProcessecFoodDao {
 					rs.getInt("calories"));
 			result.add(vo);
 		}
+		return result;
+	}
+	
+	public ProcessecFoodDto selectOneFood(Connection conn, String foodCode) throws SQLException {
+		ProcessecFoodDto result = null;
+		String query = "SELECT food_code, food_name, manufacturer, food_date, serving_size, unit, gram, milliliter, calories, total_carbohydrate, total_protein, total_fat, sugars, soduim, cholesterol, saturated_fat, trans_fat, information_source, issuer,food_db_category, food_category"
+				+ " FROM tb_processed_food"
+				+ " WHERE food_code = ?";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		pstmt = conn.prepareStatement(query);
+		pstmt.setString(1, foodCode);
+		rs = pstmt.executeQuery();
+		if(rs.next()) {
+			result = new ProcessecFoodDto(
+			rs.getString("FOOD_CODE"),
+			rs.getString("FOOD_NAME"),
+			rs.getString("MANUFACTURER"),
+			rs.getInt("FOOD_DATE"),
+			rs.getInt("SERVING_SIZE"),
+			rs.getString("UNIT"),
+			rs.getInt("GRAM"),
+			rs.getInt("MILLILITER"),
+			rs.getInt("CALORIES"),
+			rs.getInt("TOTAL_CARBOHYDRATE"),
+			rs.getInt("TOTAL_PROTEIN"),
+			rs.getInt("TOTAL_FAT"),
+			rs.getInt("SUGARS"),
+			rs.getInt("SODUIM"),
+			rs.getInt("CHOLESTEROL"),
+			rs.getInt("SATURATED_FAT"),
+			rs.getInt("TRANS_FAT"),
+			rs.getString("INFORMATION_SOURCE"),
+			rs.getString("ISSUER"),
+			rs.getString("FOOD_DB_CATEGORY"),
+			rs.getString("FOOD_CATEGORY"));
+		}
+		System.out.println(result);
 		return result;
 	}
 }
