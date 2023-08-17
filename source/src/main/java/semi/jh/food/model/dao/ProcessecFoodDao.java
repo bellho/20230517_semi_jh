@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+
 import semi.jh.food.model.dto.ProcessecFoodDto;
 
 
@@ -25,39 +27,9 @@ public class ProcessecFoodDao {
 	  * @return
 	  * @throws SQLException
 	  */
-	public List<ProcessecFoodDto> selectListFood(Connection conn, String foodName) throws SQLException{
+	public List<ProcessecFoodDto> selectListFood(SqlSession session, String foodName) throws SQLException{
 		System.out.println("[ProcessecFoodDao slecetList]");
-		List<ProcessecFoodDto> result = new ArrayList<ProcessecFoodDto>();
-		String query = "SELECT food_name,"
-				+ " food_code,"
-				+ " manufacturer,"
-				+ " food_date,"
-				+ " food_db_category,"
-				+ " food_category,"
-				+ " information_source,"
-				+ " calories"
-				+ " FROM tb_processed_food"
-				+ " where food_name like ?";
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		foodName = "%" + foodName + "%";
-		System.out.println(foodName);
-		pstmt = conn.prepareStatement(query);
-		pstmt.setString(1, foodName);
-		rs = pstmt.executeQuery();
-		if(rs.next()) {
-			ProcessecFoodDto vo = new ProcessecFoodDto(
-					rs.getString("food_code"),
-					rs.getString("food_name"), 
-					rs.getString("manufacturer"),
-					rs.getInt("food_date"),
-					rs.getString("food_db_category"),
-					rs.getString("food_category"),
-					rs.getString("information_source"),
-					rs.getInt("calories"));
-			result.add(vo);
-			//TODO dao와 dto 수정 완료
-		}
+		List<ProcessecFoodDto> result = session.selectList("foodMapper1.selectListFood", foodName);
 		System.out.println("검색함" + foodName );
 		return result;
 	}

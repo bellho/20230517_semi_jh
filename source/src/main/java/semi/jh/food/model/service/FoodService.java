@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
+
+import semi.jh.common.jdbc.MyBatisTemplate;
 import semi.jh.food.model.dao.ProcessecFoodDao;
 import semi.jh.food.model.dto.ProcessecFoodDto;
 
@@ -16,9 +19,9 @@ public class FoodService {
 	
 	public List<ProcessecFoodDto> selectListFood(String foodName) throws SQLException{
 		List<ProcessecFoodDto> result = null;
-		Connection conn = getConnection();
-		result = dao.selectListFood(conn, foodName);
-		close(conn);
+		SqlSession session = MyBatisTemplate.getSqlSession(true);
+		result = dao.selectListFood(session, foodName);
+		session.close();
 		return result;
 	}
 	

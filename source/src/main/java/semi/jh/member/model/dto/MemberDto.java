@@ -4,7 +4,7 @@ import java.util.List;
 
 import semi.jh.food.model.dto.ProcessecFoodDto;
 
-public class member {
+public class MemberDto {
 //	MEMBER_NUM NOT NULL NUMBER       
 //	ID         NOT NULL VARCHAR2(25) 
 //	PWD        NOT NULL VARCHAR2(25) 
@@ -27,10 +27,10 @@ public class member {
 	private String delDate;
 	private List<ProcessecFoodDto> pFList;
 	
-	public member() {
+	public MemberDto() {
 	}
 	
-	public member(Integer memberNum, String id, String pwd, String name, Integer brithday, String email, Integer phone,
+	public MemberDto(Integer memberNum, String id, String pwd, String name, Integer brithday, String email, Integer phone,
 			Integer gender, String regDate, String delDate, List<ProcessecFoodDto> pFList) {
 		super();
 		this.memberNum = memberNum;
