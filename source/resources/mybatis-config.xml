@@ -10,7 +10,7 @@
 	
 	<typeAliases>
 		<typeAlias type="semi.jh.food.model.dto.ProcessecFoodDto" alias="ProcessecFoodDto"/>
-		<typeAlias type="semi.jh.member.model.dto.MexmberDto" alias="MemberDto"/>
+		<typeAlias type="semi.jh.member.model.dto.MemberDto" alias="MemberDto"/>
 	</typeAliases>
 	
   <environments default="jh">

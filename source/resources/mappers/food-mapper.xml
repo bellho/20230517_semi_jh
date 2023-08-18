@@ -1,8 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="foodMapper1">
-	<select id="selectListFood" resultType="ProcessecFoodDto" parameterType="string">
-		SELECT food_name,food_code,manufacturer,food_date,food_db_category,food_category,information_source,calories tb_processed_food 
-		where food_name like '%'||#{keyword}||'%'
+	<resultMap type="ProcessecFoodDto" id="ProcessecFoodDtoMap1">
+		<result property="foodName" column="food_name"/>
+		<result property="foodCode" column="food_code"/>
+		<result property="manufacturer" column="manufacturer"/>
+		<result property="foodDate" column="food_date"/>
+		<result property="foodDbCategory" column="food_db_category"/>
+		<result property="foodCategory" column="food_category"/>
+		<result property="issuer" column="issuer"/>
+		<result property="calories" column="calories"/>
+	</resultMap>
+	
+	<select id="selectListFood1" resultMap="ProcessecFoodDtoMap1" parameterType="map">
+		SELECT * 
+		from(select tb1.*,
+		rownum rn from(SELECT food_name,
+		food_code,
+		manufacturer,
+		food_date,
+		food_db_category,
+		food_category,
+		issuer,
+		calories FROM tb_processed_food
+		where food_name like #{keyword}
+		order by food_name desc)
+		tb1)
+		tb2 where rn between #{startRownum} and #{endRownum}
 	</select>
+	
+	<select id="selectOneFood2" resultType="ProcessecFoodDto" parameterType="string">
+		SELECT food_code, food_name, manufacturer, food_date, serving_size, unit, gram, milliliter, calories, total_carbohydrate, total_protein, total_fat, sugars, soduim, cholesterol, saturated_fat, trans_fat, information_source, issuer,food_db_category, food_category
+		FROM tb_processed_food
+		WHERE food_code = #{keyword}
+	</select>
+	
+	<select id="getSearchTotalCount" resultType="int" parameterType="string">
+		select count(*) cnt from tb_processed_food
+		where food_name like #{keyword}
+	</select>
+
+	
+	
 </mapper>

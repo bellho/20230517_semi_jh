@@ -27,7 +27,7 @@ public class FoodGetSevlet extends HttpServlet {
 		String foodCode = request.getParameter("fno");
 		FoodService service = new FoodService();
 		try {
-			ProcessecFoodDto vo = service.selectOneStudent(foodCode);
+			ProcessecFoodDto vo = service.selectOneFood(foodCode);
 			request.setAttribute("fvo", vo);
 			request.getRequestDispatcher("/WEB-INF/view/food/get.jsp").forward(request, response);
 		} catch (SQLException e) {
