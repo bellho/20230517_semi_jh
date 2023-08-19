@@ -1,5 +1,7 @@
 package semi.jh.member.model.dto;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import semi.jh.food.model.dto.ProcessecFoodDto;
@@ -14,24 +16,37 @@ public class MemberDto {
 //	PHONE      NOT NULL NUMBER       
 //	GENDER     NOT NULL NUMBER       
 //	REG_DATE   NOT NULL DATE         
-//	DEL_DATE            DATE     
-	private Integer memberNum;
+	private int memberNum;
 	private String id;
 	private String pwd;
 	private String name;
-	private Integer brithday;
+	private String brithday;
 	private String email;
-	private Integer phone;
-	private Integer gender;
-	private String regDate;
-	private String delDate;
-	private List<ProcessecFoodDto> pFList;
+	private String phone;
+	private int gender;
+	private LocalDateTime regDate;
 	
 	public MemberDto() {
 	}
 	
-	public MemberDto(Integer memberNum, String id, String pwd, String name, Integer brithday, String email, Integer phone,
-			Integer gender, String regDate, String delDate, List<ProcessecFoodDto> pFList) {
+	
+	
+	public MemberDto(String id, String pwd, String name, String brithday, String email, String phone, int gender,
+			LocalDateTime regDate) {
+		this.id = id;
+		this.pwd = pwd;
+		this.name = name;
+		this.brithday = brithday;
+		this.email = email;
+		this.phone = phone;
+		this.gender = gender;
+		this.regDate = regDate;
+	}
+
+
+
+	public MemberDto(int memberNum, String id, String pwd, String name, String brithday, String email, String phone,
+			int gender, LocalDateTime regDate) {
 		super();
 		this.memberNum = memberNum;
 		this.id = id;
@@ -42,19 +57,17 @@ public class MemberDto {
 		this.phone = phone;
 		this.gender = gender;
 		this.regDate = regDate;
-		this.delDate = delDate;
-		this.pFList = pFList;
 	}
 	@Override
 	public String toString() {
 		return "member [memberNum=" + memberNum + ", id=" + id + ", pwd=" + pwd + ", name=" + name + ", brithday="
 				+ brithday + ", email=" + email + ", phone=" + phone + ", gender=" + gender + ", regDate=" + regDate
-				+ ", delDate=" + delDate + ", pFList=" + pFList + "]";
+				+ "]";
 	}
-	public Integer getMemberNum() {
+	public int getMemberNum() {
 		return memberNum;
 	}
-	public void setMemberNum(Integer memberNum) {
+	public void setMemberNum(int memberNum) {
 		this.memberNum = memberNum;
 	}
 	public String getId() {
@@ -75,10 +88,10 @@ public class MemberDto {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getBrithday() {
+	public String getBrithday() {
 		return brithday;
 	}
-	public void setBrithday(Integer brithday) {
+	public void setBrithday(String brithday) {
 		this.brithday = brithday;
 	}
 	public String getEmail() {
@@ -87,36 +100,23 @@ public class MemberDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(Integer phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Integer getGender() {
+	public int getGender() {
 		return gender;
 	}
-	public void setGender(Integer gender) {
+	public void setGender(int gender) {
 		this.gender = gender;
 	}
-	public String getRegDate() {
+	public LocalDateTime getRegDate() {
 		return regDate;
 	}
-	public void setRegDate(String regDate) {
+	public void setRegDate(LocalDateTime regDate) {
 		this.regDate = regDate;
 	}
-	public String getDelDate() {
-		return delDate;
-	}
-	public void setDelDate(String delDate) {
-		this.delDate = delDate;
-	}
-	public List<ProcessecFoodDto> getpFList() {
-		return pFList;
-	}
-	public void setpFList(List<ProcessecFoodDto> pFList) {
-		this.pFList = pFList;
-	}
-	
 	
 }

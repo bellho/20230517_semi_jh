@@ -1,7 +1,5 @@
 package semi.jh.food.model.dao;
 
-import static semi.jh.common.jdbc.JdbcTemplate.close;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

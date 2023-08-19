@@ -12,6 +12,7 @@
 		<result property="calories" column="calories"/>
 	</resultMap>
 	
+	
 	<select id="selectListFood1" resultMap="ProcessecFoodDtoMap1" parameterType="map">
 		SELECT * 
 		from(select tb1.*,
